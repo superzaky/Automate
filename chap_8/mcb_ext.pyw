@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """Saves, loads and deletes pieces of text to the clipboard.
 
 Usage:
