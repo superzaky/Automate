@@ -23,18 +23,18 @@ print(os.getcwd())
 # Loop over the files in the working directory.
 os.chdir('.\\chap_9\\rename_dates_files')
 for american_filename in os.listdir('.'):
-    mo = date_pattern.search(american_filename)
+    match = date_pattern.search(american_filename)
 
     # Skip files without a date.
-    if mo is None:
+    if match is None:
         continue
 
     # Get the different parts of the filename.
-    beforePart = mo.group(1)
-    monthPart = mo.group(2)
-    dayPart = mo.group(4)
-    yearPart = mo.group(6)
-    afterPart = mo.group(8)
+    beforePart = match.group(1)
+    monthPart = match.group(2)
+    dayPart = match.group(4)
+    yearPart = match.group(6)
+    afterPart = match.group(8)
 
     # Form the European-style filename.
     european_filename = beforePart + dayPart + '-' + monthPart + '-' + yearPart + afterPart
