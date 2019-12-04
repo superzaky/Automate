@@ -16,17 +16,34 @@ while True:
 	time.sleep(1)
 	im = pyautogui.screenshot()
 	# if im.getpixel((197,456)) == (35, 41, 44):    # Checks if a point at health bar has turned dark
-	pyautogui.moveTo(int(hor),int(ver),tim)
-	pyautogui.click()
-	print('click')
+
+	guard_head_loc = pyautogui.locateOnScreen('./rs/screenshots/guard_head.PNG')
+	print('head lcoation = ' )
+	print( guard_head_loc)
+	if guard_head_loc != None:
+		pyautogui.moveTo(guard_head_loc.width, guard_head_loc.height,tim)
+		pyautogui.click()
+		print('click')
+	
+
 	# if im.getpixel((479,490)) == (142, 29, 30): #Checks if regenerate ability is lit up (meaning out of combat)
 	time.sleep(spawntime) # wait for spawns , in case that cause "out of combat"
-	im = pyautogui.screenshot()
 	# if im.getpixel((479,490)) == (142, 29, 30):
-	pyautogui.moveTo(int(awayHor),int(awayVer),timee)
-	pyautogui.click()
-	print('click2')
-	time.sleep(waitime)
+
+	guard_body_loc = pyautogui.locateOnScreen('./rs/screenshots/guard_body.PNG', grayscale=True, confidence=.5)
+	print('guard_body_loc lcoation = ' )
+	print( guard_body_loc)
+	if guard_body_loc != None:
+		pyautogui.moveTo(guard_body_loc.width, guard_body_loc.height, tim)
+		pyautogui.click()
+		print('click2')
+
+	# pyautogui.moveTo(int(awayHor),int(awayVer),timee)
+	# pyautogui.click()
+	# print('click2')
+	# time.sleep(waitime)
+
+
 	# pyautogui.moveTo(658,towardVer,timee)
 	# pyautogui.click()
 	# print('click3')
